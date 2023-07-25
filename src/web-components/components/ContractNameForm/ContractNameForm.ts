@@ -8,7 +8,7 @@ class ContractNameForm extends HTMLElement {
     super()
 
     this.error = ""
-    this.custom = ""
+    this.custom = this.getAttribute("contract") || ""
 
     this.onsubmit = (ev) => {
       ev.preventDefault()
@@ -48,7 +48,7 @@ class ContractNameForm extends HTMLElement {
 
   update() {
     const autoFocus = this.getAttribute("autoFocus") || undefined
-    const contract = this.getAttribute("contract") || undefined
+    const contract = this.getAttribute("contract") || ""
 
     this.innerHTML = `
         <form class="border-2 flex items-center rounded-md text-white w-full">
@@ -71,6 +71,7 @@ class ContractNameForm extends HTMLElement {
               name="customContract"
               required
               autoFocus=${autoFocus}
+              value="${contract}"
             />
             <button type="submit" class="disabled:opacity-40" ${
               this.custom === contract ? "disabled" : ""

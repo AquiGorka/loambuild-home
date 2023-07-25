@@ -1,14 +1,13 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { getContractData } from "../../protocols/near";
-import { ClientSideEntryPoint } from "../../react";
+import Layout from "../../layouts/Layout.astro"
+import { getContractData } from "../../protocols/near"
 
-const { contract } = Astro.params;
-const data = await getContractData(contract);
+const { contract } = Astro.params
+const data = await getContractData(contract)
 
-if (!contract || !data) return Astro.redirect("/404");
+if (!contract || !data) return Astro.redirect("/404")
 ---
 
 <Layout contractData={data}>
-  <ClientSideEntryPoint client:only="react" />
+  <wc-client-side-entry-point></wc-client-side-entry-point>
 </Layout>

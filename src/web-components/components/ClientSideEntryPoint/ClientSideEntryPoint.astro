@@ -1,0 +1,25 @@
+<script>
+  class ClientSideEntryPoint extends HTMLElement {
+    constructor() {
+      super()
+    }
+
+    connectedCallback() {
+      this.innerHTML = `
+        <wc-router>
+          <wc-route
+            path="/:protocol/:contract?/:method?"
+            component="wc-layout"
+          ></wc-route>
+          <wc-route
+            path="*"
+            title="404"
+            component="wc-error-page"
+          ></wc-route>
+          <wc-outlet></wc-outlet>
+        </wc-router>
+      `
+    }
+  }
+  customElements.define("wc-client-side-entry-point", ClientSideEntryPoint)
+</script>
