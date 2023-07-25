@@ -20,6 +20,7 @@
     "astro": "^2.1.0",
     "json-schema": "*",
     "near-api-js": "*",
+    "path-match": "^1.2.4",
     "react": "*",
     "react-dom": "*",
     "react-markdown": "^8.0.5",
